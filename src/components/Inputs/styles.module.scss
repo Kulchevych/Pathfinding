@@ -1,0 +1,57 @@
+.Inputs {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  .label {
+
+  }
+
+  label {
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    background: white;
+    outline: none;
+    align-items: center;
+    font-size: 26px;
+    border: 5px solid teal;
+    color: teal;
+    border-radius: 20px;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    cursor: pointer;
+  
+    &:hover {
+      background: black;
+      border-color: black;
+      color: white;
+    }
+  
+    &:active {
+      background: rgb(1, 61, 61);
+      border-color: rgb(1, 61, 61);
+    }
+  }
+
+  .file {
+    display: none;
+  }
+
+  .n {
+    background: #F2F4F8;
+    padding: 5px 20px;
+    width: max-content;
+    height: 40px;
+    border-radius: 16px;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    border: none;
+  }
+}

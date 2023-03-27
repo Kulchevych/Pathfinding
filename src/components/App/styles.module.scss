@@ -1,0 +1,36 @@
+.App {
+  position: absolute;
+  top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  width: 100vw;
+  height: calc(100vh - 30px);
+  min-width: 1600px;
+
+  .header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+
+    .flexContainer {
+      display: flex;
+      gap: 10px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+    }
+  }
+
+  .container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding-bottom: 100px;
+  }
+}

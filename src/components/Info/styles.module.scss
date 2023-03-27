@@ -1,0 +1,50 @@
+.Info {
+  width: 500px;
+  height: 658px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 5px solid teal;
+  border-radius: 10px;
+  box-sizing: border-box;
+  box-shadow: rgba(0, 0, 0, 0.26) 0px 10px 20px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+
+  font-size: 24px;
+  font-weight: 500;
+  overflow: auto;
+
+  .step {
+    padding-left: 20px;
+    font-weight: 700;
+  }
+
+  .stepNumber {
+    color: teal;
+  }
+  
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: rgb(255, 255, 255);
+    border-radius: 10px;
+  }
+  
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: teal;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-corner {
+    width: 10px;
+  }
+
+  .row {
+    padding-left: 20px;
+  }
+}

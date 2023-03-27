@@ -1,0 +1,30 @@
+button {
+  padding: 20px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  background: white;
+  outline: none;
+  align-items: center;
+  font-size: 26px;
+  border: 5px solid teal;
+  border-radius: 20px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    background: teal;
+    color: white;
+  }
+
+  &:active {
+    background: rgb(1, 61, 61);
+    border-color: rgb(1, 61, 61);
+  }
+}
+
+.disabled {
+  color: gainsboro;
+  border-color: gainsboro;
+  pointer-events: none;
+}
