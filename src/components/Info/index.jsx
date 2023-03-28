@@ -10,7 +10,7 @@ export default function Info({ hArray, peaks, peaksNumbers, isLoaded }) {
   useEffect(() => {
     list = [];
     hTemp = [];
-  }, [isLoaded]);
+  }, [isLoaded, peaksNumbers, peaks]);
 
   useEffect(() => {
     if (hArray.length === 0) {

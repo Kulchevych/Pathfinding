@@ -127,6 +127,7 @@ export default function App() {
   };
 
   useEffect(() => {
+    reset();
     generatePosition();
   }, [peaks, peakNumbers]);
 
