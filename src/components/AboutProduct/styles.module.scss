@@ -78,6 +78,32 @@
       ul {
         list-style-type: decimal;
       }
+
+      .example {
+        position: relative;
+
+        &::before {
+          content: "";
+          position: absolute;
+          z-index: -1;
+          top: -115px;
+          left: 400px;
+          width: 589px;
+          height: 288px;
+          background: url('../../assets/images/example1.png');
+          transform: scale(0.6);
+        }
+
+        &::after {
+          content: '';
+          position: absolute;
+          top: 15px;
+          left: 200px;
+          width: 260px;
+          height: 58px;
+          background: url('../../assets/images/example.png');
+        }
+      }
     }
 
     .title {
