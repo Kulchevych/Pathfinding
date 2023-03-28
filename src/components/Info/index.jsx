@@ -73,10 +73,9 @@ export default function Info({ hArray, peaks, peaksNumbers, isLoaded }) {
                 const probH = item?.end;
                 const startH = item?.start;
                 const distanceH = item?.distance;
-
                 const sum =
-                  hTemp.find((hTemp) => hTemp.title === startH).value +
-                  distanceH;
+                hTemp.find((hTemp) => hTemp.title === startH).value +
+                distanceH;
 
                 return (
                   <div className={classes.row} ref={tableRef}>

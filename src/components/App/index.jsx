@@ -56,10 +56,6 @@ export default function App() {
         )
       )
     );
-    
-    if (newDistance.length === 0) {
-      return;
-    }
 
     for (let i = 0; i < newDistance.length; i++) {
       newDistance[i].distance += temp;
@@ -80,7 +76,9 @@ export default function App() {
       }
     }
 
-    hArray.push({ title: min?.end, value: min?.distance });
+    if (min) {
+      hArray.push({ title: min?.end, value: min?.distance });
+    }
 
     temp = min?.distance;
     lines.push(values.find((value) => min === value));
@@ -175,6 +173,7 @@ export default function App() {
           <Table
             peaks={peaks}
             setPeaks={setPeaks}
+            isStarted={isStarted}
           />
         )}
       </header>

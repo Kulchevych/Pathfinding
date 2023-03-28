@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 import classes from "./styles.module.scss";
 
-export default function TableColumn({ peaks, peak, setPeaks }) {
+export default function TableColumn({ peaks, peak, setPeaks, isStarted }) {
   const startRef = useRef(null);
   const endRef = useRef(null);
 
@@ -62,17 +62,14 @@ export default function TableColumn({ peaks, peak, setPeaks }) {
   const deletePeak = () => {
     const peakIndex = peaks.findIndex((item) => item === peak);
 
-    setPeaks([
-      ...peaks.slice(0, peakIndex),
-      ...peaks.slice(peakIndex + 1),
-    ]);
-  }
+    setPeaks([...peaks.slice(0, peakIndex), ...peaks.slice(peakIndex + 1)]);
+  };
 
   return (
     <div className={classes.column}>
       <div className={classes.row}>
         <div
-          contentEditable
+          contentEditable={!isStarted}
           onBlur={changeStartValue}
           ref={startRef}
           suppressContentEditableWarning={true}
@@ -80,7 +77,7 @@ export default function TableColumn({ peaks, peak, setPeaks }) {
           {peak.start}
         </div>
         <div
-          contentEditable
+          contentEditable={!isStarted}
           onInput={changeEndValue}
           ref={endRef}
           suppressContentEditableWarning={true}
@@ -90,14 +87,15 @@ export default function TableColumn({ peaks, peak, setPeaks }) {
       </div>
       <div
         className={classes.row}
-        contentEditable
+        contentEditable={!isStarted}
         onInput={changeDistance}
         suppressContentEditableWarning={true}
       >
         {peak.distance}
       </div>
-
-      <div className={classes.deletePeak} onClick={deletePeak} />
+      {!isStarted && (
+        <div className={classes.deletePeak} onClick={deletePeak} />
+      )}
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React from "react";
 import classes from "./styles.module.scss";
 import TableColumn from "./TableColumn";
 
-export default function Table({ peaks, setPeaks }) {
+export default function Table({ peaks, setPeaks, isStarted }) {
   const addPeak = () => {
     setPeaks([
       ...peaks,
@@ -26,9 +26,12 @@ export default function Table({ peaks, setPeaks }) {
           key={`${peak.start} + ${peak.end}`}
           peaks={peaks}
           setPeaks={setPeaks}
+          isStarted={isStarted}
         />
       ))}
-      <div className={classes.addPeak} onClick={addPeak} />
+      {!isStarted && (
+        <div className={classes.addPeak} onClick={addPeak} />
+      )}
     </div>
   );
 }
