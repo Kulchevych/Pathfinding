@@ -40,6 +40,7 @@ export default function App() {
   const [peakNumbers, setPeakNumbers] = useState([]);
   const [isPopupActive, setIsPopupActive] = useState(false);
   const [n, setN] = useState(0);
+  const [selectedInfo, setSelectedInfo] = useState("Про програму");
 
   useEffect(() => {
     positions = [];
@@ -165,17 +166,24 @@ export default function App() {
             setN={setN}
           />
           <Button
-            onClick={() => setIsPopupActive(true)}
+            onClick={() => {
+              setIsPopupActive(true);
+              setSelectedInfo("Про програму");
+            }}
             disabled={isStarted}
             text="Про програму"
           />
+          <Button
+            onClick={() => {
+              setIsPopupActive(true);
+              setSelectedInfo("Інструкція");
+            }}
+            disabled={isStarted}
+            text="Інструкція"
+          />
         </div>
         {!!peaks.length && (
-          <Table
-            peaks={peaks}
-            setPeaks={setPeaks}
-            isStarted={isStarted}
-          />
+          <Table peaks={peaks} setPeaks={setPeaks} isStarted={isStarted} />
         )}
       </header>
       {isLoaded && (
@@ -196,7 +204,10 @@ export default function App() {
         </div>
       )}
       {isPopupActive && (
-        <AboutProduct handleClose={() => setIsPopupActive(false)} />
+        <AboutProduct
+          handleClose={() => setIsPopupActive(false)}
+          tabInfo={selectedInfo}
+        />
       )}
     </div>
   );

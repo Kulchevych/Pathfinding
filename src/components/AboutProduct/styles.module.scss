@@ -20,6 +20,8 @@
     border-radius: 16px;
     box-sizing: border-box;
     transform: translate(-50%, -50%);
+    overflow: auto;
+    overflow: overlay;
     
     .header {
       padding-left: 150px;
@@ -104,6 +106,10 @@
           background: url('../../assets/images/example.png');
         }
       }
+
+      hr {
+        margin-top: 120px;;
+      }
     }
 
     .title {
@@ -130,6 +136,28 @@
         background: teal;
         top: calc(100% + 20px);
       }
+    }
+
+
+    &::-webkit-scrollbar {
+      width: 10px;
+      height: 10px;
+    }
+    
+    /* Track */
+    &::-webkit-scrollbar-track {
+      background: rgb(255, 255, 255);
+      border-radius: 10px;
+    }
+    
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+      background: teal;
+      border-radius: 10px;
+    }
+  
+    &::-webkit-scrollbar-corner {
+      width: 10px;
     }
   }
 }

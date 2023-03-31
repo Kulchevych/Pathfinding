@@ -1,10 +1,12 @@
 import classNames from "classnames";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import classes from "./styles.module.scss";
 
-export default function AboutProduct({ handleClose }) {
+export default function AboutProduct({ handleClose, tabInfo }) {
   const [activeTab, setActiveTab] = useState("Про програму");
   const tabs = ["Про програму", "Інструкція"];
+
+  useEffect(() => setActiveTab(tabInfo), []);
 
   return (
     <div className={classes.AboutProduct}>
@@ -26,17 +28,24 @@ export default function AboutProduct({ handleClose }) {
         </div>
         {activeTab === 'Про програму' && (
           <div className={classes.text}>
-            Програма розроблена у межах продукту "Мережі та потоки" студентами:
+            Програма розроблена у межах дисципліни "Мережі та потоки" на базі кафедри МПУіК під керівництвом доцента кафедри математичних проблем управління і кібернетики Руснака Миколи Андрійовича студентами групи 441:
             <ul className={classes.list}>
-              <li>Безрободько Ілля - керівник</li>
-              <li>Воробьов Денис - оратор</li>
-              <li>Гавучак Назар - діловод</li>
+              <li>Безрободько Ілля - тімлід</li>
+              <li>Воробьов Денис - спікер</li>
+              <li>Гавучак Назар - відповідальний за документацію</li>
               <li>Захаров Данило - тестувальник</li>
               <li>Кульчевич Назарій - програміст</li>
             </ul>
-            Призначенa для знаходження найкоротшого шляху
+            Програма призначенa для знаходження найкоротшого шляху
             методом Мінті. Програма виконує обчислення найкоротшого шляху від
-            початку до кожної вершини, якої можна досягнути. Містить такі функції: 
+            початку до кожної вершини, якої можна досягнути. 
+            <hr />
+            Для придбання програми звертайтеся по номеру: +380506761009
+          </div>
+        )}
+        {activeTab === 'Інструкція' && (
+          <div className={classes.text}>
+            Програма містить такі функції: 
             <ul className={classes.list}>
               <li>зчитування файлу</li>
               <li>зображення дуг і обмежень</li>
@@ -46,10 +55,7 @@ export default function AboutProduct({ handleClose }) {
               <li>видалення вершини</li>
               <li>вивід кроків обчислення</li>
             </ul>
-          </div>
-        )}
-        {activeTab === 'Інструкція' && (
-          <div className={classes.text}>Послідовність використання програми:
+            Послідовність використання програми:
           <ul>
               <li>Потрібно мати текстовий файл, в якому кожен окремий рядок повинен містити інформацію про ребро мережі, а саме - з якої вершини виходить та входить ребро й "вага" цього ребра. Усі дані вводяться послідовно через пробіл. 
                 <div>
