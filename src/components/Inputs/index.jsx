@@ -42,7 +42,8 @@ export default function Inputs({
 
   useEffect(() => {
     if (fileContent) {
-      const tempArr = fileContent.trim().split("\r\n");
+      const tempArr = fileContent.trim().split("\n");
+      console.log(tempArr);
 
       tempArr?.forEach((arr) => {
         const [start, end, distance] = arr.split(" ");
