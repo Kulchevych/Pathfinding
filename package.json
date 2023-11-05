@@ -1,11 +1,13 @@
 {
   "name": "my-app",
   "version": "0.1.0",
+  "homepage": "http://Kulchevych.github.io/Pathfinding",
   "private": true,
   "main": "src/index.js",
   "dependencies": {
     "classnames": "^2.3.2",
     "eslint": "^8.36.0",
+    "gh-pages": "^6.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-indiana-drag-scroll": "^2.2.0",
@@ -16,7 +18,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy" : "npm run build",
+    "deploy" : "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
