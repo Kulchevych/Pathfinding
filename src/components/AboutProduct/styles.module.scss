@@ -15,14 +15,13 @@
     height: 750px;
     font-size: 40px;
     font-weight: 700;
-    background: #FFFFFF;
+    background: #ffffff;
     box-shadow: 0px 4px 60px rgba(0, 0, 0, 0.1);
     border-radius: 16px;
     box-sizing: border-box;
     transform: translate(-50%, -50%);
-    overflow: auto;
-    overflow: overlay;
-    
+    overflow: hidden;
+
     .header {
       padding-left: 150px;
       display: flex;
@@ -30,18 +29,11 @@
       align-items: center;
 
       .closeIcon {
+        position: relative;
         width: 40px;
         height: 40px;
-        padding-left: 1px;
-        padding-bottom: 11px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 44px;
-        font-weight: 100;
         border-radius: 50%;
         background-color: gainsboro;
-        transform: rotate(45deg);
         box-sizing: border-box;
         transition: background-color 0.3s;
         cursor: pointer;
@@ -49,22 +41,45 @@
         &:hover {
           background: rgb(168, 167, 167);
         }
+
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 16px;
+          height: 2px;
+          background-color: black;
+        }
+
+        &::before {
+          transform: translate(-50%) rotate(45deg);
+        }
+
+        &::after {
+          transform: translate(-50%) rotate(-45deg);
+        }
       }
     }
 
     .text {
+      height: 615px;
       margin-top: 40px;
       font-weight: 400;
       font-size: 24px;
+      overflow: scroll;
+      overflow: auto;
+      overflow: overlay;
 
       .list {
         list-style: none;
 
         li {
           position: relative;
-  
+
           &::before {
-            content: '';
+            content: "";
             position: absolute;
             right: calc(100% + 20px);
             top: 50%;
@@ -92,23 +107,44 @@
           left: 400px;
           width: 589px;
           height: 288px;
-          background: url('../../assets/images/example1.png');
+          background: url("../../assets/images/example1.png");
           transform: scale(0.6);
         }
 
         &::after {
-          content: '';
+          content: "";
           position: absolute;
           top: 15px;
           left: 200px;
           width: 260px;
           height: 58px;
-          background: url('../../assets/images/example.png');
+          background: url("../../assets/images/example.png");
         }
       }
 
       hr {
-        margin-top: 120px;;
+        margin-top: 120px;
+      }
+
+      &::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+      }
+
+      /* Track */
+      &::-webkit-scrollbar-track {
+        background: rgb(255, 255, 255);
+        border-radius: 10px;
+      }
+
+      /* Handle */
+      &::-webkit-scrollbar-thumb {
+        background: teal;
+        border-radius: 10px;
+      }
+
+      &::-webkit-scrollbar-corner {
+        width: 10px;
       }
     }
 
@@ -128,7 +164,7 @@
       color: teal;
 
       &::after {
-        content: '';
+        content: "";
         position: absolute;
         left: 0;
         width: 100%;
@@ -136,28 +172,6 @@
         background: teal;
         top: calc(100% + 20px);
       }
-    }
-
-
-    &::-webkit-scrollbar {
-      width: 10px;
-      height: 10px;
-    }
-    
-    /* Track */
-    &::-webkit-scrollbar-track {
-      background: rgb(255, 255, 255);
-      border-radius: 10px;
-    }
-    
-    /* Handle */
-    &::-webkit-scrollbar-thumb {
-      background: teal;
-      border-radius: 10px;
-    }
-  
-    &::-webkit-scrollbar-corner {
-      width: 10px;
     }
   }
 }

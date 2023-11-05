@@ -6,7 +6,7 @@ export default function AboutProduct({ handleClose, tabInfo }) {
   const [activeTab, setActiveTab] = useState("Про програму");
   const tabs = ["Про програму", "Інструкція"];
 
-  useEffect(() => setActiveTab(tabInfo), []);
+  useEffect(() => setActiveTab(tabInfo), [tabInfo]);
 
   return (
     <div className={classes.AboutProduct}>
@@ -22,9 +22,7 @@ export default function AboutProduct({ handleClose, tabInfo }) {
               {tab}
             </span>
           ))}
-          <div className={classes.closeIcon} onClick={() => handleClose()}>
-            +
-          </div>
+          <div className={classes.closeIcon} onClick={() => handleClose()} />
         </div>
         {activeTab === 'Про програму' && (
           <div className={classes.text}>
