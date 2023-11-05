@@ -1,2 +1,2 @@
 # Pathfinding
-[Demolink]([https://kulchevych.github.io/Pathfinding/])
+[Demo Link](https://kulchevych.github.io/Pathfinding/)
